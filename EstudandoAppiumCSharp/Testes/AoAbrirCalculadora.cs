@@ -2,13 +2,11 @@ using EstudandoAppiumCSharp.Fixtures;
 using EstudandoAppiumCSharp.PageObjects;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium.Android;
-using OpenQA.Selenium.Support.UI;
-using System;
 using Xunit;
 
 namespace EstudandoAppiumCSharp
 {
-    [Collection ("ActorAppiumDriver")]
+    [Collection ("AppiumDriver")]
     public class AoAbrirCalculadora
     {
         private AndroidDriver<IWebElement> driver { get; set; }
@@ -16,6 +14,7 @@ namespace EstudandoAppiumCSharp
         public AoAbrirCalculadora(TesteFixtures fixtures)
         {
             this.driver = fixtures.driver;
+            driver.Lock();
         }
 
         [Fact]
@@ -25,11 +24,11 @@ namespace EstudandoAppiumCSharp
             var calculadora = new CalculadoraPO(driver);
 
             //act
-            calculadora.SomaDeNumerosInteiro(5, 9);
+            calculadora.SomaDeNumerosInteiros(5, 9);
 
             //assert
             var resultadoCalculo = calculadora.RecebeResultadoCalculo();
-            Assert.Equal("14", resultadoCalculo);
+            Assert.Equal(14, resultadoCalculo);
         }
 
         [Fact]
@@ -39,11 +38,11 @@ namespace EstudandoAppiumCSharp
             var calculadora = new CalculadoraPO(driver);
 
             //act
-            calculadora.SubtracaoDeNumerosInteiro(9, 5);
+            calculadora.SubtracaoDeNumerosInteiros(9, 5);
 
             //assert
             var resultadoCalculo = calculadora.RecebeResultadoCalculo();
-            Assert.Equal("4", resultadoCalculo);
+            Assert.Equal(4, resultadoCalculo);
         }
     }
 }

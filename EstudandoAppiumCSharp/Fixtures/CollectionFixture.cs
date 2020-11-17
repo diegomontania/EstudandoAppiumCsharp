@@ -5,7 +5,7 @@ using Xunit;
 
 namespace EstudandoAppiumCSharp.Fixtures
 {
-    [CollectionDefinition("ActorAppiumDriver")]
+    [CollectionDefinition("AppiumDriver")]
     public class CollectionFixture : ICollectionFixture<TesteFixtures>
     {
 

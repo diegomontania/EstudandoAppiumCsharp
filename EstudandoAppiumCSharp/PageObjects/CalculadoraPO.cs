@@ -10,13 +10,13 @@ namespace EstudandoAppiumCSharp.PageObjects
     public class CalculadoraPO
     {
         private AppiumDriver<IWebElement> driver;
-        
+
         public CalculadoraPO(AppiumDriver<IWebElement> driver)
         {
             this.driver = driver;
         }
 
-        public void SomaDeNumerosInteiro(int valor1, int valor2)
+        public void SomaDeNumerosInteiros(int valor1, int valor2)
         {
             Thread.Sleep(3000);
             driver.FindElementById($"com.android.calculator2:id/digit_{valor1}").Click();
@@ -24,7 +24,7 @@ namespace EstudandoAppiumCSharp.PageObjects
             driver.FindElementById($"com.android.calculator2:id/digit_{valor2}").Click();
         }
 
-        public void SubtracaoDeNumerosInteiro(int valor1, int valor2)
+        public void SubtracaoDeNumerosInteiros(int valor1, int valor2)
         {
             Thread.Sleep(3000);
             driver.FindElementById($"com.android.calculator2:id/digit_{valor1}").Click();
@@ -32,12 +32,12 @@ namespace EstudandoAppiumCSharp.PageObjects
             driver.FindElementById($"com.android.calculator2:id/digit_{valor2}").Click();
         }
 
-        public string RecebeResultadoCalculo()
+        public int RecebeResultadoCalculo()
         {
             Thread.Sleep(3000);
             var resultado = driver.FindElementById("com.android.calculator2:id/result").Text;
             LimpaCampoDeResultado();
-            return resultado;
+            return Convert.ToInt32(resultado);
         }
 
         private void LimpaCampoDeResultado()

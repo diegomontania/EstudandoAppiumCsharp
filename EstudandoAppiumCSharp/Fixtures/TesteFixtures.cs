@@ -12,19 +12,15 @@ namespace EstudandoAppiumCSharp.Fixtures
         public AndroidDriver<IWebElement> driver { get; set; }
         public AppiumOptions appiumOptions = new AppiumOptions();
 
-        public string NomePacote { get; set; }
-        public string TelaInicialApp { get; set; }
-
-        //setup - antes de iniciar o teste
         public TesteFixtures()
         {
-            //AppiumOptions appiumOptions = new AppiumOptions();
+            //setup - antes de iniciar o teste
             appiumOptions.AddAdditionalCapability("platformName", "Android");
             appiumOptions.AddAdditionalCapability("platformVersion", "5.0");
             appiumOptions.AddAdditionalCapability("deviceName", "meuCelular");
             appiumOptions.AddAdditionalCapability("automationName", "UiAutomator2");
 
-            //app e main activity da aplicação ----------- RESOLVER AQUI DEPOIS COMO PASSAR ISSO AQUI
+            //app e main activity da aplicação
             appiumOptions.AddAdditionalCapability("appPackage", "com.android.calculator2");
             appiumOptions.AddAdditionalCapability("appActivity", ".Calculator");
 
