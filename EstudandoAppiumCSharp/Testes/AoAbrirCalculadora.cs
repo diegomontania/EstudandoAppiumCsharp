@@ -14,7 +14,6 @@ namespace EstudandoAppiumCSharp
         public AoAbrirCalculadora(TesteFixtures fixtures)
         {
             this.driver = fixtures.driver;
-            driver.Lock();
         }
 
         [Fact]
